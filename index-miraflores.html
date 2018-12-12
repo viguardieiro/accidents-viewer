@@ -23,8 +23,8 @@
   const deckgl = new DeckGL({
     mapboxApiAccessToken: 'pk.eyJ1IjoianBvY29tIiwiYSI6ImNqbmZkZmV5aDFlMGEzdm5yNXQ1dzJrMmsifQ.-z-5Kfwg_n47WFQKN5lQnQ',
     mapStyle: 'mapbox://styles/mapbox/dark-v9',
-    latitude: -34.873946,
-    longitude: -56.214755,
+    latitude: -12.125885,
+    longitude: -77.021021,
     zoom: 12,
     minZoom: 5,
     maxZoom: 15,
@@ -87,7 +87,7 @@
     });
   }
 
-  d3.json('accidents.json')
+  d3.json('accidents-miraflores.json')
     .then(response => {
       data = response.datasets[0].data.allData;
 
@@ -99,7 +99,7 @@
         d.cluster = d[3]
       });
       console.log(data.length);
-      const limit = new Date(2018, 8, 0);
+      const limit = new Date(2018, 11, 0);
       data = data.filter(d => { return d.end < limit; });
 
       var minTime = d3.min(data, d => d.initial);
